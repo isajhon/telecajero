@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+ <data>
+     <record model="ir.ui.view" id="view_telecajero_form">
+        <field name="name">vista form del formulario  </field>
+        <field name="model">telecajero.telecajero</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Consulta de saldo">
+                <group>
+                    <field name="cedula" />
+                    <field name="cuenta" />
+                    <field name="fecha"/>
+                    <field name="nombre"/>
+                    <field name="active"/>
+                </group>
+                
+            </form>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_telecajero_tree">
+        <field name="name">vista tree del formulario telecajero</field>
+        <field name="model">telecajero.telecajero</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Consulta de saldo">
+                <field name="cedula"/>
+                <field name="cuenta"/>
+                <field name="fecha"/>
+                <field name="nombre"/>
+            </tree>
+        </field>
+    </record>
+    
+    
+    <record model="ir.actions.act_window" id="action_telecajero">
+        <field name="name">Consulta de saldo</field>
+        <field name="res_model">telecajero.telecajero</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem 
+        name="Consulta de saldo" 
+        id="telecajero_horizontal_menu" 
+        sequence="5" />
+    <menuitem 
+        name="Consulta de saldo" 
+        id="telecajero_vertical_menu" 
+        parent="telecajero_horizontal_menu" 
+        sequence="5"/>
+        
+    <menuitem 
+        name="consulta de saldo" 
+        id="telecajero_subvertical_menu" 
+        parent="telecajero_vertical_menu"
+        action="action_telecajero" 
+        sequence="5"/>
+
+ </data>
+</openerp>
